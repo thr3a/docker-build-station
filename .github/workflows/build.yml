@@ -13,6 +13,9 @@ jobs:
     permissions:
       contents: read
       packages: write
+    strategy:
+      matrix:
+        target: ["yt-dlp", "imagemagick"]
 
     steps:
       - name: Checkout repository
@@ -36,8 +39,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/yt-dlp
-            ghcr.io/${{ github.actor }}/yt-dlp
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.target }}
+            ghcr.io/${{ github.actor }}/${{ matrix.target }}
           tags: |
             type=schedule,pattern={{date 'YYYYMMDD'}}
             type=raw,value=latest
@@ -45,7 +48,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         with:
-          context: yt-dlp
+          context: ./${{ matrix.target }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
