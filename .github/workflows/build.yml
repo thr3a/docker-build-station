@@ -37,7 +37,7 @@ jobs:
         with:
           images: |
             ${{ secrets.DOCKERHUB_USERNAME }}/yt-dlp
-            ghcr.io/yt-dlp
+            ghcr.io/${{ github.actor }}/yt-dlp
           tags: |
             type=schedule,pattern={{date 'YYYYMMDD'}}
             type=raw,value=latest
