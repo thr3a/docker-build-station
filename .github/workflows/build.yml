@@ -15,7 +15,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        target: ["yt-dlp", "imagemagick", "php-fpm"]
+        target: ["yt-dlp", "imagemagick", "php-fpm", "debugger", "python"]
 
     steps:
       - name: Checkout repository
