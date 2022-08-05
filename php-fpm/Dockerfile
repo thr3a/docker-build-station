@@ -10,9 +10,10 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     gd-stable \
     xdebug-stable \
     intl-stable \
-    mysqli \
-    pdo_mysql \
-    redis
+    mysqli-stable \
+    pdo_mysql-stable \
+    redis-stable \
+    @composer
 
 WORKDIR /app
 COPY ./myphp.ini /usr/local/etc/php/conf.d/myphp.ini
