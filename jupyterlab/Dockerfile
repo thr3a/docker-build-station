@@ -1,6 +1,7 @@
 FROM jupyter/tensorflow-notebook:latest
 
 ENV TZ=Asia/Tokyo
+ENV JUPYTER_TOKEN=pass
 
 USER root
 
@@ -18,5 +19,11 @@ COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/
 RUN pip install --quiet --no-cache-dir --requirement /tmp/requirements.txt && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
+
+RUN mkdir -p /home/${NB_USER}/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/ \
+    && mkdir -p /home/${NB_USER}/.jupyter/lab/user-settings/@jupyterlab/terminal-extension/
+
+COPY themes.jupyterlab-settings /home/${NB_USER}/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/
+COPY plugin.jupyterlab-settings /home/${NB_USER}/.jupyter/lab/user-settings/@jupyterlab/terminal-extension/
 
 WORKDIR "${HOME}"
