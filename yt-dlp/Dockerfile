@@ -5,6 +5,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     python3 -m pip install --no-cache-dir --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
 
+ADD yt-dlp.conf /etc/yt-dlp.conf
+
 WORKDIR /app
 
 ENTRYPOINT ["yt-dlp"]
