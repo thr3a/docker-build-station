@@ -9,7 +9,6 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions \
     gd-stable \
-    xdebug-stable \
     intl-stable \
     mysqli-stable \
     pdo_mysql-stable \
