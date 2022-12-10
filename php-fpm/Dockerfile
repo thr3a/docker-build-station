@@ -7,13 +7,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions \
-    gd-stable \
-    intl-stable \
-    mysqli-stable \
-    pdo_mysql-stable \
-    redis-stable \
-    @composer
+    install-php-extensions hogehoge
 
 WORKDIR /app
 COPY ./myphp.ini /usr/local/etc/php/conf.d/myphp.ini
