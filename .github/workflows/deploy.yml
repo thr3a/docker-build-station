@@ -47,7 +47,7 @@ jobs:
 
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
-        continue-on-error: true
+        # continue-on-error: true
         with:
           context: ./${{ matrix.target }}
           push: true
