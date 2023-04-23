@@ -15,7 +15,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        target: ["s3s", "yt-dlp", "lux", "imagemagick", "debugger", "php-fpm", "jupyterlab", "torch-gpu"]
+        target: ["s3s", "yt-dlp", "lux", "imagemagick", "debugger", "php-fpm", "growi-es"]
 
     steps:
       - name: Checkout repository
