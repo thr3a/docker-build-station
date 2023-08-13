@@ -1,13 +1,8 @@
-FROM go:1.21 as build
+FROM golang:1.21-alpine3.17 as build
+# FROM golang:1.21-alpine3.17
 
-RUN apk update
-RUN apk add \
-  git \
-  go
+RUN go install -v github.com/gan-of-culture/get-sauce@latest
 
-RUN go install -v github.com/otiai10/amesh@latest
-
-FROM alpine:latest AS exec
-RUN apk add tzdata
-COPY --from=build /root/go/bin/amesh /bin
-CMD ["amesh"]
+FROM alpine:3.17 AS runner
+COPY --from=build /go/bin/* /bin
+ENTRYPOINT ["get-sauce"]
