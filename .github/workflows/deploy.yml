@@ -15,7 +15,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        target: ["s3s", "yt-dlp", "lux", "imagemagick", "debugger", "php-fpm"]
+        target: ["yt-dlp", "lux", "imagemagick", "debugger", "php-fpm"]
 
     steps:
       - name: Checkout repository
@@ -50,6 +50,7 @@ jobs:
         # continue-on-error: true
         with:
           context: ./${{ matrix.target }}
+          platforms: linux/amd64,linux/arm/v7
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
