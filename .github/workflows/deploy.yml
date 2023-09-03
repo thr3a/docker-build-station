@@ -15,7 +15,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        target: ["get-sauce", "yt-dlp", "lux", "imagemagick", "debugger", "php-fpm"]
+        target: ["get-sauce", "yt-dlp", "lux", "imagemagick", "debugger", "php-fpm", "pdftotext"]
 
     steps:
       - name: Checkout repository
