@@ -1,0 +1,11 @@
+server {
+  listen 80 default_server;
+  location / {
+    proxy_pass http://${FORWARD_HOST}:${FORWARD_PORT};
+    auth_basic "Restricted";
+    auth_basic_user_file auth.htpasswd;
+    proxy_read_timeout 3600;
+    proxy_set_header Host $host;
+    proxy_buffering off;
+ }
+}
