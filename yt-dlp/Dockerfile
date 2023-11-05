@@ -1,7 +1,7 @@
-FROM python:3.11
+FROM python:3.12-slim
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends ffmpeg && \
+    apt-get install -y --no-install-recommends curl ffmpeg && \
     rm -rf /var/lib/apt/lists/* && \
     python3 -m pip install --no-cache-dir --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz && \
     curl -LsS https://github.com/ytdl-patched/youtube-dl/releases/latest/download/youtube-dl > /usr/local/bin/youtube-dl && \
