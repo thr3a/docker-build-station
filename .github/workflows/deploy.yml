@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '40 13 * * *'
+    - cron: "40 13 * * *"
 
 jobs:
   build-and-push-image:
@@ -15,7 +15,17 @@ jobs:
       packages: write
     strategy:
       matrix:
-        target: ["get-sauce", "yt-dlp", "lux", "imagemagick", "debugger", "php-fpm", "pdftotext", "basic-auth-nginx"]
+        # target: ["get-sauce", "yt-dlp", "lux", "imagemagick", "debugger", "php-fpm", "pdftotext", "basic-auth-nginx"]
+        target:
+          [
+            "yt-dlp",
+            "lux",
+            "imagemagick",
+            "debugger",
+            "php-fpm",
+            "pdftotext",
+            "basic-auth-nginx",
+          ]
 
     steps:
       - name: Checkout repository
