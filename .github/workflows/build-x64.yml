@@ -17,9 +17,9 @@ jobs:
     strategy:
       matrix:
         target: [
-            # "cuda11.8-torch",
-            # "cuda12.1-torch",
-            "alma-7b-server",
+            "cuda11.8-torch",
+            "cuda12.1-torch",
+            # "alma-7b-server",
             "yt-dlp",
             "lux",
             "imagemagick",
