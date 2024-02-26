@@ -10,6 +10,8 @@ RUN apt-get update && \
 ADD yt-dlp.conf /etc/yt-dlp.conf
 ADD yt-dlp.conf /etc/youtube-dl.conf
 
+# https://github.com/smalltownjj/yt-dlp-plugin-missav
+ADD missav.py /etc/yt-dlp-plugins/yt-dlp-plugin-missav/yt_dlp_plugins/extractor/missav.py
 WORKDIR /app
 
 ENTRYPOINT ["yt-dlp"]
