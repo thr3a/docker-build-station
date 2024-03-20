@@ -32,7 +32,8 @@ jobs:
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
-        if: matrix.target == 'cuda11.8-torch' || matrix.target == 'cuda12.1-torch' || matrix.target == 'alma-7b-server' || matrix.target == 'iopaint'
+        if: contains(['cuda11.8-torch', 'cuda12.1-torch', 'alma-7b-server', 'iopaint'], matrix.target)
+        # if: matrix.target == 'cuda11.8-torch' || matrix.target == 'cuda12.1-torch' || matrix.target == 'alma-7b-server' || matrix.target == 'iopaint'
         with:
           # this might remove tools that are actually needed,
           # if set to "true" but frees about 6 GB
