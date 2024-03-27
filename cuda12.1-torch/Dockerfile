@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
 ENV PYTHONUNBUFFERED=1
 ENV PIP_NO_CACHE_DIR=on
+ENV PYTHONDONTWRITEBYTECODE=1
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv f23c5a6cf475977595c89f51ba6932366a755776 \
  && echo "deb http://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu jammy main" > /etc/apt/sources.list.d/python.list \
