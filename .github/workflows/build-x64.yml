@@ -27,6 +27,7 @@ jobs:
             "debugger",
             "pdftotext",
             "basic-auth-nginx",
+            "squid",
           ]
 
     steps:
