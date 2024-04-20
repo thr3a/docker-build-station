@@ -1,0 +1,8 @@
+version: '3'
+services:
+  squid:
+    image: thr3a/squid:latest
+    ports:
+      - 3128:3128
+    volumes:
+      - "./example.conf:/etc/squid/squid.conf"
