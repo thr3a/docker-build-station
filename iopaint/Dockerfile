@@ -6,5 +6,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pip install iopaint rembg
 RUN iopaint download --model=lama
-ENTRYPOINT ["iopaint", "start", "--model=lama", "--device=cuda", "--host=0.0.0.0", "--port=8080", "--enable-remove-bg"]
+ENTRYPOINT ["iopaint", "start", "--model=lama", "--device=cuda", "--host=0.0.0.0", "--port=8080", "--enable-remove-bg", "--enable-anime-seg"]
 
