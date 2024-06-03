@@ -61,5 +61,6 @@ jobs:
           context: ./${{ matrix.target }}
           platforms: linux/arm/v7
           push: true
+          provenance: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
