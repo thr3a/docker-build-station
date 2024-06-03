@@ -83,7 +83,7 @@ jobs:
         # continue-on-error: true
         with:
           context: ./${{ matrix.target }}
-          platforms: linux/amd64
+          # platforms: linux/amd64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
