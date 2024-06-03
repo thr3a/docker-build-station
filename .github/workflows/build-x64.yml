@@ -28,6 +28,7 @@ jobs:
             "pdftotext",
             "basic-auth-nginx",
             "squid",
+            "stress"
           ]
 
     steps:

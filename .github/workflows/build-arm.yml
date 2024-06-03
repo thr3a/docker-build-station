@@ -16,7 +16,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        target: ["imagemagick", "debugger"]
+        target: ["imagemagick", "debugger", "stress"]
 
     steps:
       - name: Checkout repository
