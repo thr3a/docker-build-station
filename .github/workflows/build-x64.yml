@@ -29,6 +29,7 @@ jobs:
             "basic-auth-nginx",
             "squid",
             "stress",
+            "llama-cpp-python",
           ]
 
     steps:
