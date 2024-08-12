@@ -1,5 +1,11 @@
 FROM python:3.12-slim
 
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Tokyo
+ENV PYTHONUNBUFFERED=1
+ENV PIP_NO_CACHE_DIR=on
+ENV PYTHONDONTWRITEBYTECODE=1
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends curl ffmpeg && \
     rm -rf /var/lib/apt/lists/* && \
