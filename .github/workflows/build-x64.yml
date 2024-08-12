@@ -16,11 +16,11 @@ jobs:
       packages: write
     strategy:
       matrix:
-        target: [
+        target:
+          [
             "cuda11.8-torch",
             "cuda12.1-torch",
             "iopaint",
-            # "alma-7b-server",
             "yt-dlp",
             "lux",
             "imagemagick",
@@ -29,7 +29,7 @@ jobs:
             "basic-auth-nginx",
             "squid",
             "stress",
-            "llama-cpp-python",
+            "gallery-dl",
           ]
 
     steps:
