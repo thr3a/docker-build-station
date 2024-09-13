@@ -1,7 +1,7 @@
 # コマンド
 
 ```bash
-docker run --rm -v ./:/app my /app/target.apk
+docker run --rm -v ./:/app thr3a/apk2java:latest /app/target.apk
 ```
 
 # 参考リンク
