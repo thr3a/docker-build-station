@@ -1,4 +1,4 @@
-FROM --platform=linux/x86_64 nvcr.io/nvidia/cuda:12.4.1-cudnn8-devel-ubuntu24.04
+FROM --platform=linux/x86_64 nvcr.io/nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 
 ARG PYTHON_VERSION=3.12
 ARG PACKAGES="git curl ca-certificates vim wget unzip build-essential cmake jq"
