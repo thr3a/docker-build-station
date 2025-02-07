@@ -30,6 +30,10 @@ Dockerfile
 FROM ghcr.io/thr3a/cuda12.4-torch:latest
 
 WORKDIR /app
-COPY ./requirements.txt ./
-RUN pip install -r requirements.txt
+# COPY ./requirements.txt ./
+# RUN pip install -r requirements.txt
+
+COPY pyproject.toml ./
+COPY uv.lock ./
+RUN uv sync --frozen --no-cache
 ```
