@@ -1,8 +1,6 @@
 docker-compose.yml
 
 ```yml
-version: "3"
-
 services:
   app:
     build:
@@ -24,4 +22,14 @@ services:
       - "./cache:/root/.cache"
     # command: sleep infinity
     command: python train_rinna.py
+```
+
+Dockerfile
+
+```dockerfile
+FROM ghcr.io/thr3a/cuda12.4-torch:latest
+
+WORKDIR /app
+COPY ./requirements.txt ./
+RUN pip install -r requirements.txt
 ```
