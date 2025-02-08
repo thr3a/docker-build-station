@@ -1,6 +1,6 @@
-FROM --platform=linux/x86_64 nvcr.io/nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
+FROM --platform=linux/x86_64 nvcr.io/nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04
 
-ARG PYTHON_VERSION=3.12
+ARG PYTHON_VERSION=3.13
 ARG PACKAGES="git curl ca-certificates vim wget unzip build-essential cmake jq"
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -21,6 +21,6 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/* \
  && curl -sSL https://bootstrap.pypa.io/get-pip.py | python - \
  && pip install uv
-RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 
 WORKDIR /app
