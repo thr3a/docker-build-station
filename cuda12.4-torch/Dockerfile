@@ -10,17 +10,27 @@ ENV PIP_NO_CACHE_DIR=on
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV UV_PROJECT_ENVIRONMENT="/usr/"
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv f23c5a6cf475977595c89f51ba6932366a755776 \
- && echo "deb http://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu jammy main" > /etc/apt/sources.list.d/python.list \
- && echo "deb-src http://ppa.launchpad.net/deadsnakes/ppa/ubuntu jammy main" >> /etc/apt/sources.list.d/python.list
+RUN apt-get update && apt-get install -y --no-install-recommends ${PACKAGES}
 
-RUN apt-get update \
- && apt-get install -y --no-install-recommends ${PACKAGES} python${PYTHON_VERSION} \
- && ln -nfs /usr/bin/python${PYTHON_VERSION} /usr/bin/python \
- && ln -nfs /usr/bin/python${PYTHON_VERSION} /usr/bin/python3 \
- && rm -rf /var/lib/apt/lists/* \
- && curl -sSL https://bootstrap.pypa.io/get-pip.py | python - \
- && pip install uv
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked <<INSTALL_UBUNTU_PYTHON
+  fingerprint=F23C5A6CF475977595C89F51BA6932366A755776
+  repo=deadsnakes
+  subrepo=ppa
+  ubuntu_version=$(. /etc/os-release && echo $VERSION_CODENAME)
+  curl -sS "http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x${fingerprint}" > "./${repo}.asc"
+  cat "./${repo}.asc" | gpg --dearmor -o "/etc/apt/keyrings/${repo}.gpg"
+  echo "deb [signed-by=/etc/apt/keyrings/${repo}.gpg] http://ppa.launchpad.net/${repo}/${subrepo}/ubuntu ${ubuntu_version} main" | tee -a /etc/apt/sources.list.d/${repo}.list
+
+  apt-get update
+  apt-get install --no-install-recommends -y python${PYTHON_VERSION} python${PYTHON_VERSION}-dev
+  ln -nfs /usr/bin/python${PYTHON_VERSION} /usr/bin/python
+  ln -nfs /usr/bin/python${PYTHON_VERSION} /usr/bin/python3
+  curl -sSL https://bootstrap.pypa.io/get-pip.py | python - --break-system-packages
+  rm -rf /var/lib/apt/lists/*
+  pip install uv
+INSTALL_UBUNTU_PYTHON
+
 RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
 
 WORKDIR /app
