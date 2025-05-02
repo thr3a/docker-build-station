@@ -13,5 +13,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends ${PACKAGES}
 
 RUN pip install -U pip
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+RUN pip install uv
 
 WORKDIR /app
