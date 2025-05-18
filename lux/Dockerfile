@@ -4,7 +4,7 @@ WORKDIR /tmp
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends ffmpeg curl ca-certificates \
-  && curl -L https://github.com/iawia002/lux/releases/download/v0.21.0/lux_0.21.0_Linux_x86_64.tar.gz > lux.tar.gz \
+  && curl -L https://github.com/iawia002/lux/releases/download/v0.24.1/lux_0.24.1_Linux_x86_64.tar.gz > lux.tar.gz \
   && tar xfv lux.tar.gz \
   && mv lux /usr/local/bin/lux \
   && rm -f lux.tar.gz \
