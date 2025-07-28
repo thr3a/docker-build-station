@@ -16,8 +16,7 @@ RUN pip install https://github.com/soimort/you-get/archive/master.tar.gz
 ADD yt-dlp.conf /etc/yt-dlp.conf
 ADD yt-dlp.conf /etc/youtube-dl.conf
 
-# https://github.com/smalltownjj/yt-dlp-plugin-missav
-# ADD doodstream.py /etc/yt-dlp-plugins/yt-dlp-plugin-missav/yt_dlp_plugins/extractor/doodstream.py
+ADD https://raw.githubusercontent.com/smalltownjj/yt-dlp-plugin-missav/refs/heads/main/yt_dlp_plugins/extractor/missav.py /etc/yt-dlp-plugins/yt-dlp-plugin-missav/yt_dlp_plugins/extractor/missav.py
 WORKDIR /app
 
 ENTRYPOINT ["yt-dlp"]
