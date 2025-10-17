@@ -17,6 +17,7 @@ ADD yt-dlp.conf /etc/yt-dlp.conf
 ADD yt-dlp.conf /etc/youtube-dl.conf
 
 ADD https://raw.githubusercontent.com/smalltownjj/yt-dlp-plugin-missav/refs/heads/main/yt_dlp_plugins/extractor/missav.py /etc/yt-dlp-plugins/yt-dlp-plugin-missav/yt_dlp_plugins/extractor/missav.py
+ADD ./doodstream.py /etc/yt-dlp-plugins/yt-dlp-plugin-doodstream/yt_dlp_plugins/extractor/doodstream.py
 RUN sed -i 's/ws/ai/g' /etc/yt-dlp-plugins/yt-dlp-plugin-missav/yt_dlp_plugins/extractor/missav.py
 WORKDIR /app
 
