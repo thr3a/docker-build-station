@@ -19,9 +19,7 @@ jobs:
         target:
           [
             "cuda11.8-torch",
-            "cuda12.1-torch",
-            "cuda12.4-torch",
-            "cuda12.6-torch",
+            "cuda12.8-torch",
             "yt-dlp",
             "lux",
             "imagemagick",
