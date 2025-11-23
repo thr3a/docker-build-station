@@ -13,6 +13,10 @@ RUN pip install "yt-dlp[default,curl-cffi] @ https://github.com/yt-dlp/yt-dlp/ar
 RUN pip install https://github.com/ytdl-org/youtube-dl/archive/master.tar.gz
 RUN pip install https://github.com/soimort/you-get/archive/master.tar.gz
 
+# No supported JavaScript runtime could be found. YouTube extraction without a JS runtime has been deprecated対策
+# ref: https://github.com/yt-dlp/yt-dlp/wiki/EJS
+COPY --from=deno-bin /deno /usr/local/bin/deno
+
 ADD yt-dlp.conf /etc/yt-dlp.conf
 ADD yt-dlp.conf /etc/youtube-dl.conf
 
