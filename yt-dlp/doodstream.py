@@ -11,7 +11,7 @@ from yt_dlp.utils import ExtractorError
 class DoodStreamIE(InfoExtractor):
     _VALID_URL = r'''(?x)
         https?://
-        (?P<domain>(?:[\w-]+\.)*(?:dood(?:stream)?|d-?s)[\w-]*\.[a-z]{2,})
+        (?P<domain>(?:[\w-]+\.)*(?:dood(?:stream)?|d-?s|myvidplay)[\w-]*\.[a-z]{2,})
         /
         (?P<kind>[def])
         /
