@@ -15,8 +15,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends curl ffmpeg ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 RUN pip install "yt-dlp[default,curl-cffi] @ https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz"
-RUN pip install https://github.com/ytdl-org/youtube-dl/archive/master.tar.gz
-RUN pip install https://github.com/soimort/you-get/archive/master.tar.gz
 
 ADD yt-dlp.conf /etc/yt-dlp.conf
 ADD yt-dlp.conf /etc/youtube-dl.conf
