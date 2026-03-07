@@ -30,7 +30,6 @@ jobs:
             "squid",
             "stress",
             "gallery-dl",
-            "gimei",
           ]
 
     steps:
