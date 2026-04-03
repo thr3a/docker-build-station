@@ -30,6 +30,7 @@ jobs:
             "squid",
             "stress",
             "gallery-dl",
+            "huggingface-cli"
           ]
 
     steps:
