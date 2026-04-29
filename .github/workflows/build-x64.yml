@@ -21,6 +21,7 @@ jobs:
           [
             "cuda11.8-torch",
             "cuda12.8-torch",
+            "cuda13.0-torch",
             "yt-dlp",
             "lux",
             "imagemagick",
