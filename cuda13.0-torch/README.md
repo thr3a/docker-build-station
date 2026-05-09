@@ -27,7 +27,7 @@ services:
 Dockerfile
 
 ```dockerfile
-FROM thr3a/cuda12.8-torch:latest
+FROM thr3a/cuda13.0-torch:latest
 
 WORKDIR /app
 # COPY ./requirements.txt ./
