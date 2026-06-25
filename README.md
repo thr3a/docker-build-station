@@ -20,4 +20,4 @@ https://github.com/thr3a?tab=packages&repo_name=docker-build-station
 
 - [Dockerイメージの公開 - GitHub Docs](https://docs.github.com/ja/actions/publishing-packages/publishing-docker-images)
 
-2025年3月29日
+2026/06/26
