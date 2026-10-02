@@ -15,4 +15,3 @@ RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH:-amd64} \
 FROM scratch
 COPY --from=build /out/gimei /gimei
 ENTRYPOINT ["/gimei"]
-CMD ["female:kanji", "-n", "5"]
